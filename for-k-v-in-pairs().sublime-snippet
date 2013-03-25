@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[for ${1:k}, ${2:v} in pairs(${3:table_name}) do
+	${0:-- Code here...}
+end]]></content>
+    <tabTrigger>forp</tabTrigger>
+    <scope>source.computercraft</scope>
+    <description>for k, v in pairs()</description>
+</snippet>

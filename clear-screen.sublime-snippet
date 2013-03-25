@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+term.setBackgroundColor(${1:colors.black})
+term.setTextColor(${2:colors.white})
+term.clear()
+term.setCursorPos(${3:1}, ${4:1})]]></content>
+	<tabTrigger>term</tabTrigger>
+	<scope>source.computercraft</scope>
+	<description>Clear the Screen</description>
+</snippet>

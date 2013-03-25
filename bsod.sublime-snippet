@@ -1,0 +1,27 @@
+<snippet>
+	<content><![CDATA[
+-- Program functions...
+
+local function main(...)
+	-- Code here...
+end
+
+-- Run
+local args = {...}
+local _, err = pcall(function() main(unpack(args)) end)
+if err then
+	-- Make a nice error handling screen here...
+	term.setBackgroundColor(colors.black)
+	term.setTextColor(colors.white)
+	term.clear()
+	term.setCusorPos(1, 3)
+	print(" An Error Has Occured! D:\n\n")
+	print(" " .. tostring(err) .. "\n\n")
+	print(" Press any key to exit...")
+	os.pullEvent("key")
+end
+]]></content>
+	<tabTrigger>function main</tabTrigger>
+	<scope>source.computercraft</scope>
+	<description>BSoD</description>
+</snippet>

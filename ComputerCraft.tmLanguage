@@ -1,0 +1,316 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>comment</key>
+	<string>ComputerCraft Syntax: Version 1.2</string>
+
+	<key>fileTypes</key>
+	<array>
+		<string>lua</string>
+	</array>
+
+	<key>foldingStartMarker</key>
+	<string>^\s*\b(function|local\s+function|if|elseif|for)\b|{[ \t]*$|\[\[</string>
+	
+	<key>foldingStopMarker</key>
+	<string>\bend\b|^\s*}|\]\]</string>
+	
+	<key>keyEquivalent</key>
+	<string>^~L</string>
+	
+	<key>name</key>
+	<string>ComputerCraft</string>
+
+	<key>patterns</key>
+	<array>
+		<!-- Functions -->
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.computercraft</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.scope.computercraft</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.computercraft</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.begin.computercraft</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>variable.parameter.function.computercraft</string>
+				</dict>
+				<key>6</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.end.computercraft</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>\b(function)\s+([a-zA-Z_.:]+[.:])?([a-zA-Z_]\w*)\s*(\()([^)]*)(\))</string>
+			<key>name</key>
+			<string>meta.function.computercraft</string>
+		</dict>
+
+		<!-- Functions 2 -->
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.scope.computercraft</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.computercraft</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.computercraft</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.computercraft</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.begin.computercraft</string>
+				</dict>
+				<key>6</key>
+				<dict>
+					<key>name</key>
+					<string>variable.parameter.function.computercraft</string>
+				</dict>
+				<key>7</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.end.computercraft</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>([a-zA-Z_.:]+[.:])?([a-zA-Z_]\w*)\s*(\=)\s*(function)\s*(\()([^)]*)(\))</string>
+			<key>name</key>
+			<string>meta.function.computercraft</string>
+		</dict>
+
+		<!-- Numbers -->
+		<dict>
+			<key>match</key>
+			<string>(?&lt;![\d.])\s0x[a-fA-F\d]+|\b\d+(\.\d+)?([eE]-?\d+)?|\.\d+([eE]-?\d+)?</string>
+			<key>name</key>
+			<string>constant.numeric.computercraft</string>
+		</dict>
+
+		<!-- Single Quote Strings -->
+		<dict>
+			<key>begin</key>
+			<string>'</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.computercraft</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>'</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.computercraft</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.single.computercraft</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\.</string>
+					<key>name</key>
+					<string>constant.character.escape.computercraft</string>
+				</dict>
+			</array>
+		</dict>
+
+		<!-- Double Quote Strings -->
+		<dict>
+			<key>begin</key>
+			<string>"</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.computercraft</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>"</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.computercraft</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.double.computercraft</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\.</string>
+					<key>name</key>
+					<string>constant.character.escape.computercraft</string>
+				</dict>
+			</array>
+		</dict>
+
+		<!-- Multiline String -->
+		<dict>
+			<key>begin</key>
+			<string>(?&lt;!--)\[(=*)\[</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.computercraft</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>\]\1\]</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.computercraft</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.other.multiline.computercraft</string>
+		</dict>
+
+		<!-- Multiline Comment -->
+		<dict>
+			<key>begin</key>
+			<string>--\[(=*)\[</string>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.computercraft</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>\]\1\]</string>
+			<key>name</key>
+			<string>comment.block.computercraft</string>
+		</dict>
+
+		<!-- Comment -->
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.computercraft</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(--)(?!\[\[).*$\n?</string>
+			<key>name</key>
+			<string>comment.line.double-dash.computercraft</string>
+		</dict>
+
+		<!-- Control Statements -->
+		<dict>
+			<key>match</key>
+			<string>\b(break|do|else|for|if|elseif|return|then|repeat|while|until|end|function|local|in)\b</string>
+			<key>name</key>
+			<string>keyword.control.computercraft</string>
+		</dict>
+
+		<!-- Globals -->
+		<dict>
+			<key>match</key>
+			<string>(?&lt;![^.]\.|:)\b(false|nil|true|_G|_VERSION|math\.(pi|huge)|(colors|colours)\.(white|orange|magenta|lightBlue|yellow|lime|pink|cyan|purple|blue|brown|green|red|black)|colours\.grey|colors\.gray|colours\.lightGrey|colors\.lightGray|keys\.([a-z]|(f[1-9]{1}([0-5])?)|(numPad[0-9])|zero|one|two|three|four|five|six|seven|eight|nine|home|period|comma|numPadEquals|kana|end|return|up|down|right|left|rightShift|leftShift|rightCtrl|leftCtrl|tab|pageDown|pageUp|underscore|colon|semiColon|slash|space|enter|delete|backspace|rightAlt|leftAlt|backslash|rightBracket|leftBracket|numPadSubtract|numPadEnter|capsLock|stop|kanji|insert|numPadAdd|scollLock|yen|ax|equals|numPadDecimal|numLock|minus|pause|numPadComma|cimcumflex|noconvert|grave|apostrophe|at|convert|numPadDivide|multiply))\b|(?&lt;![.])\.{3}(?!\.)</string>
+			<key>name</key>
+			<string>constant.language.computercraft</string>
+		</dict>
+
+		<!-- Reserved Language Variables -->
+		<dict>
+			<key>match</key>
+			<string>(?&lt;![^.]\.|:)\b(self)\b</string>
+			<key>name</key>
+			<string>variable.language.self.computercraft</string>
+		</dict>
+
+		<!-- Global Functions -->
+		<dict>
+			<key>match</key>
+			<string>(?&lt;![^.]\.|:)\b(assert|dofile|error|getfenv|getmetatable|ipairs|loadfile|loadstring|pairs|pcall|print|rawequal|rawget|rawset|setfenv|setmetatable|sleep|next|select|tonumber|tostring|type|unpack|write|read|xpcall|printError)\b(?=[( {"'])</string>
+			<key>name</key>
+			<string>support.function.computercraft</string>
+		</dict>
+
+		<!-- Library Functions -->
+		<dict>
+			<key>match</key>
+			<string>(?&lt;![^.]\.|:)\b(bit\.(blogic_rshift|tobits|blshift|brshift|bxor|bor|band|bnot|tonumb)|(colors|colours)\.(combine|subtract|test)|coroutine\.(create|resume|running|status|wrap|yield)|disk\.(isPresent|hasData|getMountPath|getLabel|setLabel|getID|hasAudio|getAudioTitle|playAudio|stopAudio|eject)|fs\.(list|exists|isDir|isReadOnly|getFreeSpace|getName|getDrive|getSize|makeDir|move|copy|delete|combine|open)|gps\.locate|help\.(path|setPath|lookup|topics)|http\.(request|get|post)|io\.(close|open|read|write|type)|math\.(abs|acos|asin|atan2?|ceil|cosh?|deg|exp|floor|fmod|frexp|ldexp|log|log10|max|min|modf|pow|rad|random|randomseed|sinh?|sqrt|tanh?)|os\.(version|getComputerID|computerID|getComputerLabel|computerLabel|setComputerLabel|run|loadAPI|unloadAPI|pullEvent|pullEventRaw|queueEvent|clock|startTimer|sleep|time|day|setAlarm|shutdown|reboot)|paintutils\.(loadImage|drawImage|drawPixel|drawLine)|parallel\.(waitForAny|waitForAll)|peripheral\.(isPresent|getType|getMethods|call|wrap)|rednet\.(run|open|close|announce|send|broadcast|receive|isOpen)|(rs|redstone)\.(getSides|getInput|setInput|setOutput|getOutput|setBundledOutput|getBundledOutput|getBundledInput|testBundledInput)|shell\.(exit|dir|setDir|path|setPath|resolve|resolveProgram|aliases|setAlias|clearAlias|programs|run|getRunningProgram)|string\.(byte|char|dump|find|format|gmatch|gsub|len|lower|match|rep|reverse|sub|upper)|table\.(foreachi|foreach|getn|concat|insert|maxn|remove|sort)|(term|term\.native|native)\.(write|clear|clearLine|getCursorPos|setCursorPos|setCursorBlink|isColor|isColour|getSize|scroll|redirect|restore|setTextColor|setTextColour|setBackgroundColor|setBackgroundColour)|textutils\.(slowPrint|slowWrite|formatTime|tabulate|pagedTabulate|pagedPrint|serialize|unserialize|urlEncode)|vector\.new|turtle\.(craft|forward|back|up|down|turnLeft|turnRight|select|getItemCount|getItemSpace|attack|attackUp|attackDown|dig|digUp|digDown|place|placeUp|placeDown|detect|detectUp|detectDown|compare|compareUp|compareDown|compareTo|drop|dropUp|dropDown|suck|suckUp|suckDown|refuel|getFuelLevel|transferTo)|keys\.(getName)|emulog\.(clear|log))\b(?=[( {])</string>
+			<key>name</key>
+			<string>support.function.library.computercraft</string>
+		</dict>
+
+		<!-- Keyword Operators -->
+		<dict>
+			<key>match</key>
+			<string>\b(and|or|not)\b</string>
+			<key>name</key>
+			<string>keyword.operator.computercraft</string>
+		</dict>
+
+		<!-- Symbol Operators -->
+		<dict>
+			<key>match</key>
+			<string>\+|-|%|#|\*|\/|\^|==?|~=|&lt;=?|&gt;=?|(?&lt;!\.)\.{2}(?!\.)</string>
+			<key>name</key>
+			<string>keyword.operator.computercraft</string>
+		</dict>
+	</array>
+
+	<key>scopeName</key>
+	<string>source.computercraft</string>
+
+	<key>uuid</key>
+	<string>c8c30617-67f4-419b-8415-b9bc2d999805</string>
+</dict>
+</plist>

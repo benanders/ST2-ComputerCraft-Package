@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[function ${1:function_name}(${2:...})
+	${0:-- Code here...}
+end]]></content>
+    <tabTrigger>function</tabTrigger>
+    <scope>source.computercraft</scope>
+    <description>function</description>
+</snippet>
