@@ -2,6 +2,26 @@
     "scope": "source.computercraft",
 
     "completions": [
+    // Keywords
+        { "trigger": "break", "contents": "break" },
+        { "trigger": "do", "contents": "do" },
+        { "trigger": "else", "contents": "else" },
+        { "trigger": "for", "contents": "for" },
+        { "trigger": "if", "contents": "if" },
+        { "trigger": "elseif", "contents": "elseif" },
+        { "trigger": "return", "contents": "return" },
+        { "trigger": "then", "contents": "then" },
+        { "trigger": "repeat", "contents": "repeat" },
+        { "trigger": "while", "contents": "while" },
+        { "trigger": "until", "contents": "until" },
+        { "trigger": "end", "contents": "end" },
+        { "trigger": "function", "contents": "function" },
+        { "trigger": "local", "contents": "local" },
+        { "trigger": "false", "contents": "false" },
+        { "trigger": "true", "contents": "true" },
+        { "trigger": "nil", "contents": "nil" },
+
+
     // The Bit API is for manipulating numbers using bitwise binary operations
         { "trigger": "bit.tobits", "contents": "bit.tobits(${0:int n})" },
         { "trigger": "bit.blshift", "contents": "bit.blshift(${1:int n}, ${0:bits bits})" },
