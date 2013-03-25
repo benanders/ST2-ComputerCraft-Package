@@ -8,6 +8,7 @@
 
 	<key>fileTypes</key>
 	<array>
+		<string></string>
 		<string>lua</string>
 	</array>
 
