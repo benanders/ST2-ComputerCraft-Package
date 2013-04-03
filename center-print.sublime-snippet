@@ -4,7 +4,7 @@
 	else
 		local x, y = term.getCursorPos()
 		local w, h = term.getSize()
-		term.setCursorPos(w/2 - text:len()/2, ny or y)
+		term.setCursorPos(w/2 - text:len()/2 + (#text % 2 == 0 and 1 or 0), ny or y)
 		print(text)
 	end
 end]]></content>
