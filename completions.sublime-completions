@@ -149,8 +149,8 @@
     // Paintutils
         { "trigger": "paintutils.loadImage", "contents": "paintutils.loadImage(${1:path})" },
         { "trigger": "paintutils.drawImage", "contents": "paintutils.drawImage(${1:image}, ${2:x}, ${3:y})" },   
-        { "trigger": "paintutils.drawPxel", "contents": "paintutils.drawPxel(${1:x}, ${2:y}, ${3:colour})" },
-        { "trigger": "paintutils.drawLine", "contents": "paintutils.drawLine(${1:startX}, ${2:startY}, ${3:endX}, ${4:endY}, ${5:colour})" },
+        { "trigger": "paintutils.drawPxel", "contents": "paintutils.drawPxel(${1:x}, ${2:y}, ${3:color})" },
+        { "trigger": "paintutils.drawLine", "contents": "paintutils.drawLine(${1:startX}, ${2:startY}, ${3:endX}, ${4:endY}, ${5:color})" },
 
     // Parallel
         { "trigger": "parallel.waitForAny", "contents": "parallel.waitForAny(${1:function1}, ${2:function2}, ${3:...})" },
@@ -179,8 +179,8 @@
         { "trigger": "redstone.getOutput", "contents": "redstone.getOutput(${1:side})" },
         { "trigger": "redstone.getBundledInput", "contents": "redstone.getBundledInput(${1:side})" },
         { "trigger": "redstone.getBundledOutput", "contents": "redstone.getBundledOutput(${1:side})" },
-        { "trigger": "redstone.setBundledOutput", "contents": "redstone.setBundledOutput(${1:side}, ${2:colours})" },
-        { "trigger": "redstone.testBundledInput", "contents": "redstone.testBundledInput(${1:side}, ${2:colour})" },
+        { "trigger": "redstone.setBundledOutput", "contents": "redstone.setBundledOutput(${1:side}, ${2:colors})" },
+        { "trigger": "redstone.testBundledInput", "contents": "redstone.testBundledInput(${1:side}, ${2:color})" },
 
     // Shell
         { "trigger": "shell.exit", "contents": "shell.exit()" },
@@ -205,12 +205,15 @@
         { "trigger": "term.setCursorPos", "contents": "term.setCursorPos(${1:x}, ${2:y})" },
         { "trigger": "term.setCursorBlink", "contents": "term.setCursorBlink(${1:bool})" },
         { "trigger": "term.isColor", "contents": "term.isColor()" },
+        { "trigger": "term.isColour", "contents": "term.isColour()" },
         { "trigger": "term.getSize", "contents": "term.getSize()" },
         { "trigger": "term.scroll", "contents": "term.scroll(${1:n})" },
         { "trigger": "term.redirect", "contents": "term.redirect(${1:target})" },
         { "trigger": "term.restore", "contents": "term.restore()" },
         { "trigger": "term.setTextColor", "contents": "term.setTextColor(${1:color})" },
-        { "trigger": "term.setBackgroundColor", "contents": "term.setBackgroundcolor(${1:color})" },
+        { "trigger": "term.setBackgroundColor", "contents": "term.setBackgroundColor(${1:color})" },
+        { "trigger": "term.setTextColour", "contents": "term.setTextColor(${1:colour})" },
+        { "trigger": "term.setBackgroundColour", "contents": "term.setBackgroundColour(${1:colour})" },
 
     // Textutils
         { "trigger": "textutils.slowPrint", "contents": "textutils.slowPrint(${1:text}, ${2:rate})" },
