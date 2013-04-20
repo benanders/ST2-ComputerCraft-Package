@@ -204,13 +204,13 @@
         { "trigger": "term.getCursorPos", "contents": "term.getCursorPos()" },
         { "trigger": "term.setCursorPos", "contents": "term.setCursorPos(${1:x}, ${2:y})" },
         { "trigger": "term.setCursorBlink", "contents": "term.setCursorBlink(${1:bool})" },
-        { "trigger": "term.iscolour", "contents": "term.iscolour()" },
+        { "trigger": "term.isColor", "contents": "term.isColor()" },
         { "trigger": "term.getSize", "contents": "term.getSize()" },
         { "trigger": "term.scroll", "contents": "term.scroll(${1:n})" },
         { "trigger": "term.redirect", "contents": "term.redirect(${1:target})" },
         { "trigger": "term.restore", "contents": "term.restore()" },
-        { "trigger": "term.setTextcolour", "contents": "term.setTextcolour(${1:colour})" },
-        { "trigger": "term.setBackgroundcolour", "contents": "term.setBackgroundcolour(${1:colour})" },
+        { "trigger": "term.setTextColor", "contents": "term.setTextColor(${1:color})" },
+        { "trigger": "term.setBackgroundColor", "contents": "term.setBackgroundcolor(${1:color})" },
 
     // Textutils
         { "trigger": "textutils.slowPrint", "contents": "textutils.slowPrint(${1:text}, ${2:rate})" },
