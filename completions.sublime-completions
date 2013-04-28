@@ -149,7 +149,7 @@
     // Paintutils
         { "trigger": "paintutils.loadImage", "contents": "paintutils.loadImage(${1:path})" },
         { "trigger": "paintutils.drawImage", "contents": "paintutils.drawImage(${1:image}, ${2:x}, ${3:y})" },   
-        { "trigger": "paintutils.drawPxel", "contents": "paintutils.drawPxel(${1:x}, ${2:y}, ${3:color})" },
+        { "trigger": "paintutils.drawPixel", "contents": "paintutils.drawPixel(${1:x}, ${2:y}, ${3:color})" },
         { "trigger": "paintutils.drawLine", "contents": "paintutils.drawLine(${1:startX}, ${2:startY}, ${3:endX}, ${4:endY}, ${5:color})" },
 
     // Parallel
