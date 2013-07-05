@@ -131,7 +131,7 @@
         { "trigger": "os.getComputerID", "contents": "os.getComputerID()" },
         { "trigger": "os.getComputerLabel", "contents": "os.getComputerLabel()" },
         { "trigger": "os.setComputerLabel", "contents": "os.setComputerLabel(${1:label})" },
-        { "trigger": "os.run", "contents": "os.run(${1:environment}, {$2:programpath}, {$3:arguments})" },
+        { "trigger": "os.run", "contents": "os.run(${1:environment}, ${2:programpath}, ${3:arguments})" },
         { "trigger": "os.loadAPI", "contents": "os.loadAPI(${1:name})" },
         { "trigger": "os.unloadAPI", "contents": "os.unloadAPI(${1:name})" },
         { "trigger": "os.pullEvent", "contents": "os.pullEvent(${1:target-event})" },
