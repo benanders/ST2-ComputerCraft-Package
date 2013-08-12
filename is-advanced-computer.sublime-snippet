@@ -2,5 +2,5 @@
     <content><![CDATA[term.isColor and term.isColor()]]></content>
     <tabTrigger>term.isCol</tabTrigger>
     <scope>source.computercraft</scope>
-    <description>Is Advanced Comptuer</description>
+    <description>Is Advanced Computer</description>
 </snippet>
