@@ -14,7 +14,7 @@ if err then
 	term.setBackgroundColor(colors.black)
 	term.setTextColor(colors.white)
 	term.clear()
-	term.setCusorPos(1, 3)
+	term.setCursorPos(1, 3)
 	print(" An Error Has Occured! D:\n\n")
 	print(" " .. tostring(err) .. "\n\n")
 	print(" Press any key to exit...")
