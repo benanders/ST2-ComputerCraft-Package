@@ -136,7 +136,7 @@
         { "trigger": "os.unloadAPI", "contents": "os.unloadAPI(${1:name})" },
         { "trigger": "os.pullEvent", "contents": "os.pullEvent(${1:target-event})" },
         { "trigger": "os.pullEventRaw", "contents": "os.pullEventRaw()" },
-        { "trigger": "os.queueEvent", "contents": "os.queueEvent(${1:event}, ${2:param1}, ${3:param1}, {${4:...})" },
+        { "trigger": "os.queueEvent", "contents": "os.queueEvent(${1:event}, ${2:param1}, ${3:param1}, {${4:...}})" },
         { "trigger": "os.clock", "contents": "os.clock()" },
         { "trigger": "os.startTimer", "contents": "os.startTimer(${1:timeout})" },
         { "trigger": "os.sleep", "contents": "os.sleep(${1:timeout})" },
