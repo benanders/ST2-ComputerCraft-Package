@@ -136,7 +136,7 @@
         { "trigger": "os.unloadAPI", "contents": "os.unloadAPI(${1:name})" },
         { "trigger": "os.pullEvent", "contents": "os.pullEvent(${1:target-event})" },
         { "trigger": "os.pullEventRaw", "contents": "os.pullEventRaw()" },
-        { "trigger": "os.queueEvent", "contents": "os.queueEvent(${1:event}, ${2:param1}, ${3:param1}, {${4:...})" },
+        { "trigger": "os.queueEvent", "contents": "os.queueEvent(${1:event}, ${2:param1}, ${3:param1}, {${4:...}})" },
         { "trigger": "os.clock", "contents": "os.clock()" },
         { "trigger": "os.startTimer", "contents": "os.startTimer(${1:timeout})" },
         { "trigger": "os.sleep", "contents": "os.sleep(${1:timeout})" },
@@ -162,6 +162,8 @@
         { "trigger": "peripheral.getMethods", "contents": "peripheral.getMethods(${1:side})" },
         { "trigger": "peripheral.call", "contents": "peripheral.call(${1:side}, ${2:methodName}, ${3:param1}, ${4:param2}, ${5:...})" },
         { "trigger": "peripheral.wrap", "contents": "peripheral.wrap(${1:side})" },
+        // CC 1.5+
+        { "trigger": "peripheral.getNames", "contents": "peripheral.getNames()" },
 
     // Rednet
         { "trigger": "rednet.open", "contents": "rednet.open(${1:side})" },
@@ -181,6 +183,30 @@
         { "trigger": "redstone.getBundledOutput", "contents": "redstone.getBundledOutput(${1:side})" },
         { "trigger": "redstone.setBundledOutput", "contents": "redstone.setBundledOutput(${1:side}, ${2:colors})" },
         { "trigger": "redstone.testBundledInput", "contents": "redstone.testBundledInput(${1:side}, ${2:color})" },
+        // CC 1.5+
+        { "trigger": "redstone.getAnalogInput", "contents": "redstone.getAnalogInput(${1:side})" },
+        { "trigger": "redstone.getAnalogOutput", "contents": "redstone.getAnalogOutput(${1:side})" },
+        { "trigger": "redstone.getAnalogueInput", "contents": "redstone.getAnalogueInput(${1:side})" },
+        { "trigger": "redstone.getAnalogueOutput", "contents": "redstone.getAnalogueOutput(${1:side})" },
+        { "trigger": "redstone.setAnalogOutput", "contents": "redstone.setAnalogOutput(${1:side}, ${2:strength})" },
+        { "trigger": "redstone.setAnalogueOutput", "contents": "redstone.setAnalogueOutput(${1:side}, ${2:strength})" },
+
+    // Rs (Redstone-shorthand)
+        { "trigger": "rs.getSides", "contents": "rs.getSides()" },
+        { "trigger": "rs.getInput", "contents": "rs.getInput(${1:side})" },
+        { "trigger": "rs.setOutput", "contents": "rs.setOutput(${1:side}, ${2:value})" },
+        { "trigger": "rs.getOutput", "contents": "rs.getOutput(${1:side})" },
+        { "trigger": "rs.getBundledInput", "contents": "rs.getBundledInput(${1:side})" },
+        { "trigger": "rs.getBundledOutput", "contents": "rs.getBundledOutput(${1:side})" },
+        { "trigger": "rs.setBundledOutput", "contents": "rs.setBundledOutput(${1:side}, ${2:colors})" },
+        { "trigger": "rs.testBundledInput", "contents": "rs.testBundledInput(${1:side}, ${2:color})" },
+        // CC 1.5+
+        { "trigger": "rs.getAnalogInput", "contents": "rs.getAnalogInput(${1:side})" },
+        { "trigger": "rs.getAnalogOutput", "contents": "rs.getAnalogOutput(${1:side})" },
+        { "trigger": "rs.getAnalogueInput", "contents": "rs.getAnalogueInput(${1:side})" },
+        { "trigger": "rs.getAnalogueOutput", "contents": "rs.getAnalogueOutput(${1:side})" },
+        { "trigger": "rs.setAnalogOutput", "contents": "rs.setAnalogOutput(${1:side}, ${2:strength})" },
+        { "trigger": "rs.setAnalogueOutput", "contents": "rs.setAnalogueOutput(${1:side}, ${2:strength})" },
 
     // Shell
         { "trigger": "shell.exit", "contents": "shell.exit()" },

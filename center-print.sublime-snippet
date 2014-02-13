@@ -1,10 +1,13 @@
 <snippet>
 	<content><![CDATA[local function centerPrint(text, ny)
-	if type(text) == "table" then for _, v in pairs(text) do centerPrint(v) end
+	if type(text) == "table" then
+		for _,v in pairs(text) do
+			centerPrint(v)
+		end
 	else
-		local x, y = term.getCursorPos()
-		local w, h = term.getSize()
-		term.setCursorPos(w/2 - text:len()/2 + (#text % 2 == 0 and 1 or 0), ny or y)
+		local _,y = term.getCursorPos()
+		local w,h = term.getSize()
+		term.setCursorPos(math.ceil((w-#text)/2), ny or y)
 		print(text)
 	end
 end]]></content>

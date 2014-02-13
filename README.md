@@ -1,4 +1,4 @@
 ST2-ComputerCraft-Package
 =========================
 
-Sublime Text 2 syntax highlighting and code completion package for ComputerCraft
+Sublime Text 2 & 3 package to add syntax highlighting and code completion for [ComputerCraft](http://www.computercraft.info)

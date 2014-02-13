@@ -1,12 +1,26 @@
+# Mac OS X
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
 .DS_Store
 .AppleDouble
 .LSOverride
+# Icon must ends with two \r.
 Icon
 
 
-# Thumbnails
-._*
+# Windows
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
 
-# Files that might appear on external disk
-.Spotlight-V100
-.Trashes
+
+# Linux
+*~
