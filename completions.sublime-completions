@@ -21,6 +21,10 @@
         { "trigger": "true", "contents": "true" },
         { "trigger": "nil", "contents": "nil" },
 
+	// Modem API
+		{"trigger": "modem.open", "contents": "modem.open(${0:int n})" },
+		{"trigger": "modem.close", "contents": "modem.close()" },
+		{"trigger": "modem.transmit", "contents": "modem.transmit(${1:int sChan}, ${2:int rChan}, ${3:message}" },
 
     // The Bit API is for manipulating numbers using bitwise binary operations
         { "trigger": "bit.tobits", "contents": "bit.tobits(${0:int n})" },
