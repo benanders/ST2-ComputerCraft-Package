@@ -23,8 +23,11 @@
 
 	// Modem API
 		{"trigger": "modem.open", "contents": "modem.open(${0:int n})" },
-		{"trigger": "modem.close", "contents": "modem.close()" },
-		{"trigger": "modem.transmit", "contents": "modem.transmit(${1:int sChan}, ${2:int rChan}, ${3:message}" },
+        {"trigger": "modem.isOpen", "contents": "modem.isOpen(${1:chan})"},
+		{"trigger": "modem.close", "contents": "modem.close(${1:chan})" },
+        {"trigger": "modem.closeAll", "contents": "modem.closeAll()"},
+		{"trigger": "modem.transmit", "contents": "modem.transmit(${1:int sChan}, ${2:int rChan}, ${3:message})" },
+        {"trigger": "modem.isWireless", "contents", "modem.isWireless()"},
 
     // The Bit API is for manipulating numbers using bitwise binary operations
         { "trigger": "bit.tobits", "contents": "bit.tobits(${0:int n})" },
@@ -88,6 +91,17 @@
         { "trigger": "coroutine.wrap", "contents": "coroutine.wrap(${1:function})" },
         { "trigger": "coroutine.yield", "contents": "coroutine.yield(${1:[var1]}, ${2:[var2]}, ${3:...})" },
 
+    // Command Block API
+        {"trigger": "commandBlock.getCommand", "contents": "commandBlock.getCommand()"},
+        {"trigger": "commandBlock.setCommand", "contents": "commandBlock.setCommand(${1:String cmd})"},
+        {"trigger": "commandBlock.runCommand", "contents": "commandBlock.runCommand()"},
+
+    // Computer API
+        { "trigger": "computer.turnOn", "contents": "computer.turnOn()"},
+        { "trigger": "computer.shutdown", "contents": "computer.shutdown()"},
+        { "trigger": "computer.reboot", "contents": "computer.reboot()"},
+        { "trigger": "computer.getID", "contents": "computer.getID()"},
+
     // Disk
         { "trigger": "disk.isPresent", "contents": "disk.isPresent(${1:side})" },
         { "trigger": "disk.hasData", "contents": "disk.hasData(${1:side})" },
@@ -130,6 +144,9 @@
         { "trigger": "http.get", "contents": "http.get(${1:url})" },
         { "trigger": "http.post", "contents": "http.post(${1:url}, {2:postData})" },
 
+    // Keys API
+        { "trigger": "keys.getName", "contents": "keys.getName(${1:Number code})"},
+
     // OS
         { "trigger": "os.version", "contents": "os.version()" },
         { "trigger": "os.getComputerID", "contents": "os.getComputerID()" },
@@ -143,12 +160,23 @@
         { "trigger": "os.queueEvent", "contents": "os.queueEvent(${1:event}, ${2:param1}, ${3:param1}, {${4:...}})" },
         { "trigger": "os.clock", "contents": "os.clock()" },
         { "trigger": "os.startTimer", "contents": "os.startTimer(${1:timeout})" },
+        { "trigger": "os.cancelTimer", "contents": "os.cancelTimer(${:timerId})"},
         { "trigger": "os.sleep", "contents": "os.sleep(${1:timeout})" },
         { "trigger": "os.time", "contents": "os.time()" },
         { "trigger": "os.day", "contents": "os.day()" },
         { "trigger": "os.setAlarm", "contents": "os.setAlarm(${1:time})" },
+        { "trigger": "os.cancelAlarm", "contents": "os.cancelAlarm(${1:alarmId})"},
         { "trigger": "os.shutdown", "contents": "os.shutdown()" },
         { "trigger": "os.reboot", "contents": "os.reboot()" },
+
+    // Multishell API
+        { "trigger": "multishell.getCurrent()", "contents": "multishell.getCurrent()"},
+        { "trigger": "multishell.getCount", "contents": "multishell.getCount()"},
+        { "trigger": "multishell.launch", "contents": "multishell.launch(${1:Table env}, ${2:String programpath}, ${3:String args})"},
+        { "trigger": "multishell.setFocus", "contents": "multishell.setFocus(${1:Number tabId})"},
+        { "trigger": "multishell.setTitle", "contents": "multishell.setTitle(${1:Number tabId}, ${2:String title})"},
+        { "trigger": "multishell.getTitle", "contents": "multishell.getTitle(${1:Number tabId})"},
+        { "trigger": "multishell.getFocus", "contents": "multishell.getFocus()"},
 
     // Paintutils
         { "trigger": "paintutils.loadImage", "contents": "paintutils.loadImage(${1:path})" },
@@ -161,22 +189,40 @@
         { "trigger": "parallel.waitForAll", "contents": "parallel.waitForAll(${1:function1}, ${2:function2}, ${3:...})" },
 
     // Peripheral
-        { "trigger": "peripheral.isPresent", "contents": "peripheral.isPresent(${1:side})" },
-        { "trigger": "peripheral.getType", "contents": "peripheral.getType(${1:side})" },
-        { "trigger": "peripheral.getMethods", "contents": "peripheral.getMethods(${1:side})" },
-        { "trigger": "peripheral.call", "contents": "peripheral.call(${1:side}, ${2:methodName}, ${3:param1}, ${4:param2}, ${5:...})" },
-        { "trigger": "peripheral.wrap", "contents": "peripheral.wrap(${1:side})" },
+        { "trigger": "peripheral.isPresent", "contents": "peripheral.isPresent(${1:String side})" },
+        { "trigger": "peripheral.getType", "contents": "peripheral.getType(${1:String side})" },
+        { "trigger": "peripheral.getMethods", "contents": "peripheral.getMethods(${1:String side})" },
+        { "trigger": "peripheral.call", "contents": "peripheral.call(${1:String side}, ${2:String methodName}, ${3:param1}, ${4:param2}, ${5:...})" },
+        { "trigger": "peripheral.wrap", "contents": "peripheral.wrap(${1:String side})" },
         // CC 1.5+
         { "trigger": "peripheral.getNames", "contents": "peripheral.getNames()" },
+        // CC 1.6+
+        { "trigger": "peripheral.find", "contents": "peripheral.find(${1:String type} ${2:[, function fnFilter(${3:name}, ${4:object})]}"},
+
+    // Printer API
+        { "trigger": "printer.newPage", "contents": "printer.newPage()"},
+        { "trigger": "printer.endPage", "contents": "printer.endPage()"},
+        { "trigger": "printer.write", "contents": "printer.write(${1:String text})"}.,
+        { "trigger": "printer.setCursorPos", "contents": "printer.setCursorPos(${1:x}, ${2:y})"},
+        { "trigger": "printer.getCursorPos", "contents": "printer.getCursorPos()"},
+        { "trigger": "printer.getPageSize", "contents": "printer.getPageSize()"},
+        { "trigger": "printer.setPageTitle", "contents": "printer.setPageTitle(${1:String title})"},
+        { "trigger": "printer.getPaperLevel", "contents": "printer.getPaperLevel()"},
+        { "trigger": "printer.getInkLevel", "contents": "printer.getInkLevel()"},
 
     // Rednet
-        { "trigger": "rednet.open", "contents": "rednet.open(${1:side})" },
-        { "trigger": "rednet.close", "contents": "rednet.close(${1:side})" },
-        { "trigger": "rednet.announce", "contents": "rednet.announce()" },
-        { "trigger": "rednet.send", "contents": "rednet.send(${1:receiverID}, ${2:message})" },
-        { "trigger": "rednet.broadcast", "contents": "rednet.broadcast(${1:side})" },
-        { "trigger": "rednet.receive", "contents": "rednet.receive(${1:timeout})" },
-        { "trigger": "rednet.isOpen", "contents": "rednet.isOpen(${1:side})" },
+        { "trigger": "rednet.open", "contents": "rednet.open(${1:String side})" },
+        { "trigger": "rednet.close", "contents": "rednet.close(${1:String side})" },
+        // rednet.announce is deprecated
+        // { "trigger": "rednet.announce", "contents": "rednet.announce()" },
+        { "trigger": "rednet.send", "contents": "rednet.send(${1:int receiverID}, ${2:String message} ${3:[, optional String protocol]})" },
+        { "trigger": "rednet.broadcast", "contents": "rednet.broadcast(${1:String message} ${2:[, String protocol]})" },
+        { "trigger": "rednet.receive", "contents": "rednet.receive(${1:[String protocolFilter]} ${2:[, int timeout]}"},
+        { "trigger": "rednet.isOpen", "contents": "rednet.isOpen(${1:String side})" },
+        { "trigger": "rednet.host", "contents": "rednet.host(${1:String protocol}, ${2:String hostname})"},
+        { "trigger": "rednet.unhost", "contents": "rednet.unhost(${1:String protocol}, ${2:String hostname})"},
+        { "trigger": "rednet.lookup", "contents": "rednet.lookup(${1:String protocol}, ${2:String hostname})"},
+        { "trigger": "rednet.run", "contents": "rednet.run()"},
 
     // Redstone
         { "trigger": "redstone.getSides", "contents": "redstone.getSides()" },
@@ -239,7 +285,8 @@
         { "trigger": "term.getSize", "contents": "term.getSize()" },
         { "trigger": "term.scroll", "contents": "term.scroll(${1:n})" },
         { "trigger": "term.redirect", "contents": "term.redirect(${1:target})" },
-        { "trigger": "term.restore", "contents": "term.restore()" },
+        // term.restore is deprecated
+        // { "trigger": "term.restore", "contents": "term.restore()" },
         { "trigger": "term.setTextColor", "contents": "term.setTextColor(${1:color})" },
         { "trigger": "term.setBackgroundColor", "contents": "term.setBackgroundColor(${1:color})" },
         { "trigger": "term.setTextColour", "contents": "term.setTextColor(${1:colour})" },
@@ -300,6 +347,7 @@
         { "trigger": "tonumber", "contents": "tonumber(${1:str})" },
         { "trigger": "setfenv", "contents": "setfenv(${1:func}, ${2:env})" },
         { "trigger": "getfenv", "contents": "getfenv(${1:func})" },
-        { "trigger": "rawset", "contents": "rawset(${1:table}, ${2:str}, ${3:func})" }
+        { "trigger": "rawset", "contents": "rawset(${1:table}, ${2:str}, ${3:func})" },
+        { "trigger": "print", "contents": "print(${1:data})"}
     ]
 }
