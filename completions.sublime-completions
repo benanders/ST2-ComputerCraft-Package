@@ -108,7 +108,7 @@
         { "trigger": "disk.getMountPath", "contents": "disk.getMountPath(${1:side})" },
         { "trigger": "disk.setLabel", "contents": "disk.setLabel(${1:side}, ${2:label})" },
         { "trigger": "disk.getLabel", "contents": "disk.getLabel(${1:side})" },
-        { "trigger": "disk.getDiskID", "contents": "disk.getDiskID(${1:side})" },
+        { "trigger": "disk.getID", "contents": "disk.getID(${1:side})" },
         { "trigger": "disk.hasAudio", "contents": "disk.hasAudio(${1:side})" },
         { "trigger": "disk.getAudioTitle", "contents": "disk.getAudioTitle(${1:side})" },
         { "trigger": "disk.playAudio", "contents": "disk.playAudio(${1:side})" },
@@ -123,15 +123,18 @@
         { "trigger": "fs.getName", "contents": "fs.getName(${1:path})" },
         { "trigger": "fs.getDrive", "contents": "fs.getDrive(${1:path})" },
         { "trigger": "fs.getSize", "contents": "fs.getSize(${1:path})" },
+        { "trigger": "fs.getFreeSpace", "contents": "fs.getFreeSpace(${1:String path})"},
         { "trigger": "fs.makeDir", "contents": "fs.makeDir(${1:path})" },
         { "trigger": "fs.move", "contents": "fs.move(${1:fromPath}, ${2:toPath})" },
         { "trigger": "fs.copy", "contents": "fs.copy(${1:fromPath}, ${2:toPath})" },
         { "trigger": "fs.delete", "contents": "fs.delete(${1:path})" },
         { "trigger": "fs.combine", "contents": "fs.combine(${1:basePath}, ${2:localPath})" },
         { "trigger": "fs.open", "contents": "fs.open(${1:path})" },
+        { "trigger": "fs.find", "contents": "fs.find(${1:String wildcard})"},
+        { "trigger": "fs.getDir", "contents": "fs.getDir(${1:String path})"},
 
     // GPS
-        { "trigger": "gps.locate", "contents": "gps.locate(${1:timeout}, ${2:debug})" },
+        { "trigger": "gps.locate", "contents": "gps.locate(${1:[timeout]} ${2:[, debug]})" },
 
     // Help
         { "trigger": "help.path", "contents": "help.path()" },
@@ -140,9 +143,9 @@
         { "trigger": "help.topics", "contents": "help.topics()" },
 
     // HTTP
-        { "trigger": "http.request", "contents": "http.request(${1:url}, {2:*postData})" },
-        { "trigger": "http.get", "contents": "http.get(${1:url})" },
-        { "trigger": "http.post", "contents": "http.post(${1:url}, {2:postData})" },
+        { "trigger": "http.request", "contents": "http.request(${1:String url} {2:[, String postData {3:[, table headers]}]} )" },
+        { "trigger": "http.get", "contents": "http.get(${1:String url} ${2:[, table headers]})" },
+        { "trigger": "http.post", "contents": "http.post(${1:String url}, ${2:String postData}) ${3:[, table headers]})" },
 
     // Keys API
         { "trigger": "keys.getName", "contents": "keys.getName(${1:Number code})"},
@@ -272,35 +275,42 @@
         { "trigger": "shell.programs", "contents": "shell.programs()" },
         { "trigger": "shell.run", "contents": "shell.run(${1:program}, ${2:arguments})" },
         { "trigger": "shell.getRunningProgram", "contents": "shell.getRunningProgram()" },
+        { "trigger": "shell.openTab", "contents": "shell.openTab(${1:String command} ${2:[, String args1]} ${3:[, String args2]})"},
+        { "trigger": "shell.switchTab", "contents": "shell.switchTab(${1:int tabId})"},
 
     // Term
-        { "trigger": "term.write", "contents": "term.write(${1:text})" },
+        { "trigger": "term.write", "contents": "term.write(${1:String text})" },
         { "trigger": "term.clear", "contents": "term.clear()" },
         { "trigger": "term.clearLine", "contents": "term.clearLine()" },
         { "trigger": "term.getCursorPos", "contents": "term.getCursorPos()" },
-        { "trigger": "term.setCursorPos", "contents": "term.setCursorPos(${1:x}, ${2:y})" },
+        { "trigger": "term.setCursorPos", "contents": "term.setCursorPos(${1:int x}, ${2:int y})" },
         { "trigger": "term.setCursorBlink", "contents": "term.setCursorBlink(${1:bool})" },
         { "trigger": "term.isColor", "contents": "term.isColor()" },
         { "trigger": "term.isColour", "contents": "term.isColour()" },
         { "trigger": "term.getSize", "contents": "term.getSize()" },
-        { "trigger": "term.scroll", "contents": "term.scroll(${1:n})" },
+        { "trigger": "term.scroll", "contents": "term.scroll(${1:int n})" },
         { "trigger": "term.redirect", "contents": "term.redirect(${1:target})" },
+        { "trigger": "term.current", "current": "term.current()"},
+        { "trigger": "term.native", "current": "term.native()"},
         // term.restore is deprecated
         // { "trigger": "term.restore", "contents": "term.restore()" },
         { "trigger": "term.setTextColor", "contents": "term.setTextColor(${1:color})" },
         { "trigger": "term.setBackgroundColor", "contents": "term.setBackgroundColor(${1:color})" },
         { "trigger": "term.setTextColour", "contents": "term.setTextColor(${1:colour})" },
         { "trigger": "term.setBackgroundColour", "contents": "term.setBackgroundColour(${1:colour})" },
+        { "trigger": "monitor.setTextScale", "contents": "monitor.setTextScale(${1:int scale})"},
 
     // Textutils
-        { "trigger": "textutils.slowPrint", "contents": "textutils.slowPrint(${1:text}, ${2:rate})" },
-        { "trigger": "textutils.slowWrite", "contents": "textutils.slowWrite(${1:text}, ${2:rate})" },
-        { "trigger": "textutils.formatTime", "contents": "textutils.formatTime(${1:time}, ${2:TwentyFourHour})" },
+        { "trigger": "textutils.slowPrint", "contents": "textutils.slowPrint(${1:String text}, ${2:int rate})" },
+        { "trigger": "textutils.slowWrite", "contents": "textutils.slowWrite(${1:String text}, ${2:int rate})" },
+        { "trigger": "textutils.formatTime", "contents": "textutils.formatTime(${1:int time}, ${2:boolean TwentyFourHour})" },
         { "trigger": "textutils.tabulate", "contents": "textutils.tabulate(${1:table}, ${2:table2}, ${3:...})" },
         { "trigger": "textutils.pagedTabulated", "contents": "textutils.pagedTabulated(${1:table}, ${2:table2}, ${3:...})" },
         { "trigger": "textutils.pagedPrint", "contents": "textutils.pagedPrint(${1:string}, ${2:confirmation_lines})" },
         { "trigger": "textutils.serialize", "contents": "textutils.serialize(${1:table})" },
         { "trigger": "textutils.unserialize", "contents": "textutils.unserialize(${1:text})" },
+        // CC 1.7+
+        { "trigger": "textutils.serializeJSON", "contents": "textutils.serializeJSON(${1:Object data})"},
         { "trigger": "textutils.urlEncode", "contents": "textutils.urlEncode(${1:text})" },
 
     // Turtle
@@ -314,6 +324,7 @@
         { "trigger": "turtle.select", "contents": "turtle.select(${1:slotNum})" },
         { "trigger": "turtle.getItemCount", "contents": "turtle.getItemCount(${1:slotNum})" },
         { "trigger": "turtle.getItemSpace", "contents": "turtle.getItemSpace(${1:slotNum})" },
+        { "trigger": "turtle.getItemDetail", "contents": "turtle.getItemDetail(${1:[int slotNum]})"},
         { "trigger": "turtle.attack", "contents": "turtle.attack()" },
         { "trigger": "turtle.attackUp", "contents": "turtle.attackUp()" },
         { "trigger": "turtle.attackDown", "contents": "turtle.attackDown()" },
@@ -323,6 +334,9 @@
         { "trigger": "turtle.place", "contents": "turtle.place(${1:signText})" },
         { "trigger": "turtle.placeUp", "contents": "turtle.placeUp()" },
         { "trigger": "turtle.placeDown", "contents": "turtle.placeDown()" },
+        { "trigger": "turtle.inspect", "contents": "turtle.inspect()"},
+        { "trigger": "turtle.inspectUp", "contents": "turtle.inspectUp()"},
+        { "trigger": "turtle.inspectDown", "contents": "turtle.inspectDown()"},
         { "trigger": "turtle.detect", "contents": "turtle.detect()" },
         { "trigger": "turtle.detectUp", "contents": "turtle.detectUp()" },
         { "trigger": "turtle.detectDown", "contents": "turtle.detectDown()" },
@@ -338,7 +352,28 @@
         { "trigger": "turtle.suckDown", "contents": "turtle.suckDown()" },
         { "trigger": "turtle.refuel", "contents": "turtle.refuel(${1:quantity})" },
         { "trigger": "turtle.getFuelLevel", "contents": "turtle.getFuelLevel()" },
+        { "trigger": "turtle.getFuelLimit", "contents": "turtle.getFuelLimit()"},
         { "trigger": "turtle.transferTo", "contents": "turtle.transferTo(${1:slot}, ${2:quantity})" },
+
+    // Vector API
+        { "trigger": "vector.new", "contents": "vector.new(${1:int x}, ${2:int y}, ${3:int z})"},
+        { "trigger": ":add", "contents": ":add(${1:Vector vecB})"},
+        { "trigger": ":sub", "contents": ":sub(${1:Vector vecB})"},
+        { "trigger": ":mul", "contents": ":mul(${1:int num})"},
+        { "trigger": ":dot", "contents": ":dot(${1:Vector vecB})"},
+        { "trigger": ":cross", "contents": ":cross(${1:Vector vecB})"},
+        { "trigger": ":length", "contents": ":length()"},
+        { "trigger": ":normalize", "contents": ":normalize()"},
+        { "trigger": ":round", "contents": ":round()"},
+        { "trigger": "tostring", "contents": "tostring()"},
+
+    // Window API
+        { "trigger": "window.create", "contents": "window.create(${1:table parentTerm}, ${2:int x}, ${3:int y}, ${4:int width}, ${5:int height} ${6:[, boolean isVisible]})"},
+        { "trigger": "window.setVisible", "contents": "window.setVisible(${1:boolean visible})"},
+        { "trigger": "window.redraw", "contents": "window.redraw()"},
+        { "trigger": "window.restoreCursor", "contents": "window.restoreCursor()"},
+        { "trigger": "window.getPosition", "contents": "window.getPosition()"},
+        { "trigger": "window.reposition", "contents": "window.reposition(${1:int x}, ${2:int y}, ${3:[, int width]} ${4:[, int height]})"},
 
     // Core Function
         { "trigger": "write", "contents": "write(${1:str})" },
