@@ -22,12 +22,12 @@
         { "trigger": "nil", "contents": "nil" },
 
 	// Modem API
-		{"trigger": "modem.open", "contents": "modem.open(${0:int n})" },
-        {"trigger": "modem.isOpen", "contents": "modem.isOpen(${1:int chan})"},
-		{"trigger": "modem.close", "contents": "modem.close(${1:int chan})" },
-        {"trigger": "modem.closeAll", "contents": "modem.closeAll()"},
-		{"trigger": "modem.transmit", "contents": "modem.transmit(${1:int sChan}, ${2:int rChan}, ${3:String message})" },
-        {"trigger": "modem.isWireless", "contents", "modem.isWireless()"},
+		{ "trigger": "modem.open", "contents": "modem.open(${0:int n})" },
+        { "trigger": "modem.isOpen", "contents": "modem.isOpen(${1:int chan})"},
+		{ "trigger": "modem.close", "contents": "modem.close(${1:int chan})" },
+        { "trigger": "modem.closeAll", "contents": "modem.closeAll()"},
+		{ "trigger": "modem.transmit", "contents": "modem.transmit(${1:int sChan}, ${2:int rChan}, ${3:String message})" },
+        { "trigger": "modem.isWireless", "contents", "modem.isWireless()"},
 
     // The Bit API is for manipulating numbers using bitwise binary operations
         { "trigger": "bit.tobits", "contents": "bit.tobits(${0:int n})" },
@@ -92,9 +92,9 @@
         { "trigger": "coroutine.yield", "contents": "coroutine.yield(${1:[var1]}, ${2:[var2]}, ${3:...})" },
 
     // Command Block API
-        {"trigger": "commandBlock.getCommand", "contents": "commandBlock.getCommand()"},
-        {"trigger": "commandBlock.setCommand", "contents": "commandBlock.setCommand(${1:String cmd})"},
-        {"trigger": "commandBlock.runCommand", "contents": "commandBlock.runCommand()"},
+        { "trigger": "commandBlock.getCommand", "contents": "commandBlock.getCommand()"},
+        { "trigger": "commandBlock.setCommand", "contents": "commandBlock.setCommand(${1:String cmd})"},
+        { "trigger": "commandBlock.runCommand", "contents": "commandBlock.runCommand()"},
 
     // Computer API
         { "trigger": "computer.turnOn", "contents": "computer.turnOn()"},
