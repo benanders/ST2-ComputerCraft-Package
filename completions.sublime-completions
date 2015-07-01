@@ -173,7 +173,7 @@
         { "trigger": "os.reboot", "contents": "os.reboot()" },
 
     // Multishell API
-        { "trigger": "multishell.getCurrent()", "contents": "multishell.getCurrent()"},
+        { "trigger": "multishell.getCurrent", "contents": "multishell.getCurrent()"},
         { "trigger": "multishell.getCount", "contents": "multishell.getCount()"},
         { "trigger": "multishell.launch", "contents": "multishell.launch(${1:Table env}, ${2:String programpath}, ${3:String args})"},
         { "trigger": "multishell.setFocus", "contents": "multishell.setFocus(${1:int tabId})"},
